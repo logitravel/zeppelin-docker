@@ -1,25 +1,6 @@
-FROM alpine:3.5
+FROM logitravel/spark-docker:2.1
 
 LABEL MAINTAINER Cristòfol Torrens Morell "piffall@gmail.com"
-
-# Install required packages
-RUN \
-    apk update && \
-    apk add openjdk8 wget bash tar gzip
-
-WORKDIR /opt
-
-# Install SBT
-ENV SBT_VERSION 0.13.15
-ENV SBT_HOME /opt/sbt
-RUN \
-    mkdir -p /opt && \
-    wget https://github.com/sbt/sbt/releases/download/v${SBT_VERSION}/sbt-${SBT_VERSION}.tgz && \
-    tar -zvxf sbt-${SBT_VERSION}.tgz -C /opt && \
-    rm sbt-${SBT_VERSION}.tgz
-
-# Add sbt bin path to PATH
-ENV PATH $PATH:${SBT_HOME}/bin
 
 # Install Zeppelin
 ENV ZEPPELIN_VERSION 0.7.1
@@ -32,7 +13,3 @@ RUN \
 
 # Add zeppelin bin path to PATH
 ENV PATH $PATH:${ZEPPELIN_HOME}/bin
-
-# Set Java HOME
-ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
-
