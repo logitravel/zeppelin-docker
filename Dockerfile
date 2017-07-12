@@ -1,9 +1,9 @@
-FROM logitravel/spark-docker:2.1
+FROM logitravel/spark-docker:2.1.0
 
 LABEL MAINTAINER Cristòfol Torrens Morell "piffall@gmail.com"
 
 # Install Zeppelin
-ENV ZEPPELIN_VERSION 0.7.1
+ENV ZEPPELIN_VERSION 0.7.2
 ENV ZEPPELIN_HOME /usr/zeppelin-${ZEPPELIN_VERSION}
 RUN \
     mkdir ${ZEPPELIN_HOME} && \
