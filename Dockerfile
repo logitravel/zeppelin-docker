@@ -1,4 +1,4 @@
-FROM logitravel/spark-docker:2.1.0
+FROM logitravel/spark-docker:2.1.1
 
 LABEL MAINTAINER Cristòfol Torrens Morell "piffall@gmail.com"
 
